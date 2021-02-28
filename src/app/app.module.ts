@@ -35,7 +35,7 @@ import { LocalDateTimePipe } from './shared/pipe/local-date-time.pipe';
     MatCardModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [LocalDateTimePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
