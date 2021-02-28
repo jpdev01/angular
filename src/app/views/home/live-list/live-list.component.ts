@@ -11,6 +11,7 @@ export class LiveListComponent implements OnInit {
 
   // listagem de lives que já aconteceram!
   livesPrevious : Live[];
+  livesNext: Live[];
 
   constructor(
     public liveService: LiveService
@@ -23,7 +24,7 @@ export class LiveListComponent implements OnInit {
 
   getLives() {
     // Faz a requisição para a api externa
-    
+
     //this.liveService.getLivesWithFlag('previous')
     // terá como retorno um observable. Então iremos definir um subscribe que define o que irá acontecer quando esses dados chegarem dessa requisição da api externa.
     this.liveService.getLivesWithFlag('previous').subscribe(data => {
@@ -31,6 +32,11 @@ export class LiveListComponent implements OnInit {
       this.livesPrevious = data.content;
 
     });
+
+    this.liveService.getLivesWithFlag('nex').subscribe(data => {
+      this.livesNext = data.content;
+      
+    })
   }
 
 }
