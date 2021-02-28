@@ -14,6 +14,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
 import {HttpClientModule} from '@angular/common/http';
 import { LiveListComponent } from './views/home/live-list/live-list.component';
+import { LocalDateTimePipe } from './shared/pipe/local-date-time.pipe';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { LiveListComponent } from './views/home/live-list/live-list.component';
     AppComponent,
     HomeComponent,
     LiveListComponent,
+    LocalDateTimePipe,
   ],
   imports: [
     BrowserModule,
