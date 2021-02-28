@@ -13,12 +13,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
 import {HttpClientModule} from '@angular/common/http';
+import { LiveListComponent } from './views/home/live-list/live-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    LiveListComponent,
   ],
   imports: [
     BrowserModule,
