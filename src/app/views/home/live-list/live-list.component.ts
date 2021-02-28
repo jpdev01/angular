@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Live } from 'src/app/shared/model/live.model';
 import { LiveService } from 'src/app/shared/service/live.service';
 
@@ -14,7 +15,8 @@ export class LiveListComponent implements OnInit {
   livesNext: Live[];
 
   constructor(
-    public liveService: LiveService
+    public liveService: LiveService,
+    public sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
@@ -31,12 +33,19 @@ export class LiveListComponent implements OnInit {
       // data.content pq o ResponsePageable tem o atributo content, que são as lives.
       this.livesPrevious = data.content;
 
+      this.livesPrevious.forEach(live => {
+        live.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(live.liveLink);
+        // para cada live
+        // atribui um valor para o atributo urlSafe
+        // monta uma url segura para que se use ela dentro do html e possa imbutir o link do youtube dentro do html.
+        // ver o video bonitinho no card.
+      })
     });
 
     this.liveService.getLivesWithFlag('nex').subscribe(data => {
       this.livesNext = data.content;
-      
-    })
+
+    });
   }
 
 }
