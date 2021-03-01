@@ -15,6 +15,7 @@ import {MatCardModule} from '@angular/material/card';
 import {HttpClientModule} from '@angular/common/http';
 import { LiveListComponent } from './views/home/live-list/live-list.component';
 import { LocalDateTimePipe } from './shared/pipe/local-date-time.pipe';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { LocalDateTimePipe } from './shared/pipe/local-date-time.pipe';
     MatButtonModule,
     MatTabsModule,
     MatCardModule,
+    MatChipsModule,
     HttpClientModule
   ],
   providers: [LocalDateTimePipe],

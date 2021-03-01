@@ -4,16 +4,17 @@
       <ng-container *ngFor="let live of livesPrevious" style="margin: 0.5%">
 
         <!-- card -->
-        <mat-card class="mat-card-live"
-        fxFlex="0 1 calc(33.3% - 11px)"
-        fxFlex.lt md="0 1 calc(50% - 11%)"
-        fxFlex.lt sm="100%">
+        <mat-card class="mat-card-live" fxFlex="0 1 calc(33.3% - 11px)" fxFlex.lt md="0 1 calc(50% - 11%)" fxFlex.lt
+          sm="100%">
           <mat-card-title class="mat-card-title-live">
             <div class="row">
               <p>
                 <span fxFlex="70" fxLayoutAlign="start center" style="font-size: 0.9rem">{{live.liveName}}</span>
                 <span fxFlex="5"></span>
-                <span fxFlex="25" fxlLayoutAlign="end center" style="font-size: 0.7rem">{{live.liveDate | localDateTime}}</span>
+                <mat-chip class="mat-chip-date" fxFlex="25" fxlLayoutAlign="end center"></mat-chip>
+                <span style="font-size: 0.7rem">{{live.liveDate |
+                  localDateTime}}</span>
+                <mat-chip class="mat-chip-date" fxFlex="25" fxlLayoutAlign="end center"></mat-chip>
               </p>
               <p style="font-size: 0.7rem">
                 Canal: <span>{{live.channelName}}</span>
@@ -24,7 +25,8 @@
           <mat-card-content fxLayoutAlign="center center">
             <div>
               <!-- essa tag serve para pegar a live do youtube (video)-->
-                <iframe width="560" height="315" [src]="live.urlSafe" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+              <iframe width="560" height="315" [src]="live.urlSafe" frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
             </div>>
           </mat-card-content>
 
@@ -40,16 +42,17 @@
       <ng-container *ngFor="let live of livesPrevious" style="margin: 0.5%">
 
         <!-- card -->
-        <mat-card class="mat-card-live"
-        fxFlex="0 1 calc(33.3% - 11px)"
-        fxFlex.lt md="0 1 calc(50% - 11%)"
-        fxFlex.lt sm="100%">
+        <mat-card class="mat-card-live" fxFlex="0 1 calc(33.3% - 11px)" fxFlex.lt md="0 1 calc(50% - 11%)" fxFlex.lt
+          sm="100%">
           <mat-card-title class="mat-card-title-live">
             <div class="row">
               <p>
                 <span fxFlex="70" fxLayoutAlign="start center" style="font-size: 0.9rem">{{live.liveName}}</span>
                 <span fxFlex="5"></span>
-                <span fxFlex="25" fxlLayoutAlign="end center" style="font-size: 0.7rem">{{live.liveDate | localDateTime}}</span>
+                <mat-chip class="mat-chip-date" fxFlex="25" fxlLayoutAlign="end center">
+                  <span style="font-size: 0.7rem">{{live.liveDate |
+                    localDateTime}}</span>
+                </mat-chip>
               </p>
               <p style="font-size: 0.7rem">
                 Canal: <span>{{live.channelName}}</span>
@@ -60,7 +63,8 @@
           <mat-card-content fxLayoutAlign="center center">
             <div>
               <!-- essa tag serve para pegar a live do youtube (video)-->
-                <iframe width="560" height="315" [src]="live.urlSafe" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+              <iframe width="560" height="315" [src]="live.urlSafe" frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
             </div>>
           </mat-card-content>
 
