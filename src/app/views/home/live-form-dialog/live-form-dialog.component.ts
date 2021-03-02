@@ -57,5 +57,9 @@ export class LiveFormDialogComponent implements OnInit {
     // fechar a modal
     this.liveForm.reset();
     // resetar o formulario
+
+    // ao final do createLive
+    //reload na pagina para carregar a nova live.
+    window.location.reload();
   }
 }

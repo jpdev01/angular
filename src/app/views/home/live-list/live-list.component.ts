@@ -13,6 +13,8 @@ export class LiveListComponent implements OnInit {
   // listagem de lives que já aconteceram!
   livesPrevious : Live[];
   livesNext: Live[];
+  nextLoaded: boolean = false;
+  previousLoaded: boolean = false;
 
   constructor(
     public liveService: LiveService,
@@ -39,12 +41,17 @@ export class LiveListComponent implements OnInit {
         // atribui um valor para o atributo urlSafe
         // monta uma url segura para que se use ela dentro do html e possa imbutir o link do youtube dentro do html.
         // ver o video bonitinho no card.
-      })
+      });
+
+      this.previousLoaded = true;
     });
 
     this.liveService.getLivesWithFlag('nex').subscribe(data => {
       this.livesNext = data.content;
-
+      this.livesPrevious.forEach(live => {
+        live.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(live.liveLink);
+      });
+      this.nextLoaded = true;
     });
   }
 
