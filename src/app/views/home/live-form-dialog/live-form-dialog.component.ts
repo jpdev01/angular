@@ -25,16 +25,23 @@ export class LiveFormDialogComponent implements OnInit {
       // o formulario é composto pelo campo liveName, seu default é vazio e é obrigatório.
       channelName: ['', [Validators.required]],
       liveLink: ['', [Validators.required]],
-      liveDate: ['', [Validators.required]],
+      liveDate: ['2020-08-01T20:00:00', [Validators.required]],
       liveTime: ['', [Validators.required]]
     });
   }
 
   cancel(): void {
     this.dialogRef.close();
+    this.liveForm.reset();
   }
 
   createLive(): void {
     this.rest.saveLive(this.liveForm.value).subscribe(result =>{});
+    // chama o service e envia a modal como parametro.
+    // subscribe define o que será feito depois que a requisição for feita
+    this.cancel();
+    // fechar a modal
+    this.liveForm.reset();
+    // resetar o formulario
   }
 }

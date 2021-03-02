@@ -51,7 +51,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatInputModule,
     MatNativeDateModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule
   ],
   providers: [LocalDateTimePipe],
   bootstrap: [AppComponent]
