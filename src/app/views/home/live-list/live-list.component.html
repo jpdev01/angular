@@ -1,6 +1,9 @@
 <mat-tab-group mat-align-tabs="start" style="padding-top: 40px; padding-left: 2%; padding-right: 2%;">
   <mat-tab label="PRÓXIMAS">
-    <div fxLayout="now wrap" fxLayoutAlign="start center" style="padding: 2%;">
+
+    <mat-progress-bar mode="indeterminate" *ngIf="!nextLoaded"></mat-progress-bar>
+
+    <div fxLayout="now wrap" fxLayoutAlign="start center" style="padding: 2%;" *ngIf="nextLoaded">
       <ng-container *ngFor="let live of livesPrevious" style="margin: 0.5%">
 
         <!-- card -->
@@ -38,7 +41,11 @@
 
   <!-- Já realizadas! -->
   <mat-tab label="REALIZADAS">
-    <div fxLayout="row" fxLayoutAlign="start center" style="padding: 2%;">
+
+    <mat-progress-bar mode="indeterminate" *ngIf="!previousLoaded"></mat-progress-bar>
+
+
+    <div fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;" *ngIf="previousLoaded">
       <ng-container *ngFor="let live of livesPrevious" style="margin: 0.5%">
 
         <!-- card -->
