@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ResponsePageable } from '../model/responsePageable.model';
+import { Live } from '../model/live.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +28,12 @@ export class LiveService {
   public getLivesWithFlag(flag: string): Observable<ResponsePageable> {
     // aqui é feita a requisição
     return this.httpClient.get<ResponsePageable>(this.apiUrl + '?flag=' + flag);
+  }
+
+  public saveLive(live: any): Observable<Live>{
+    return this.httpClient.post<any>(this.apiUrl + '', live, this.httpOptions);
+    // primeiro param: link do post
+    // segundo param: objeto que irá ser feito post.
+    // terceiro: Contem o HttpHeader que contem o Content-type.
   }
 }
