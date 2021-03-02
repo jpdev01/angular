@@ -2,6 +2,7 @@ import { LiveService } from './../../../shared/service/live.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-live-form-dialog',
@@ -36,6 +37,19 @@ export class LiveFormDialogComponent implements OnInit {
   }
 
   createLive(): void {
+
+    //formatacao de data no padrao do banco
+
+    // transformar em utc
+    let formatedDate: moment.Moment = moment.utc(this.liveForm.value.liveDate).local();
+
+    //inserir o novo valor
+    let formatDate: string = "YYYY-MM-DD";
+
+    //padrao que o banco quer receber
+    this.liveForm.value.liveDate = formatedDate.format(formatDate) + "T" + this.liveForm.value.liveTime;
+
+
     this.rest.saveLive(this.liveForm.value).subscribe(result =>{});
     // chama o service e envia a modal como parametro.
     // subscribe define o que será feito depois que a requisição for feita
