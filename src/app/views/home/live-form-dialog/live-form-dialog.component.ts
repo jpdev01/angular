@@ -25,7 +25,7 @@ export class LiveFormDialogComponent implements OnInit {
       liveLink: ['', [Validators.required]],
       liveDate: ['', [Validators.required]],
       liveTime: ['', [Validators.required]]
-    })
+    });
   }
 
   cancel(): void {
