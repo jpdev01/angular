@@ -1,3 +1,4 @@
+import { LiveService } from './../../../shared/service/live.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -12,6 +13,7 @@ export class LiveFormDialogComponent implements OnInit {
   public liveForm: FormGroup;
 
   constructor(
+    private rest: LiveService,
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<LiveFormDialogComponent>
   ) { }
@@ -30,5 +32,9 @@ export class LiveFormDialogComponent implements OnInit {
 
   cancel(): void {
     this.dialogRef.close();
+  }
+
+  createLive(): void {
+    this.rest.saveLive(this.liveForm.value).subscribe(result =>{});
   }
 }
