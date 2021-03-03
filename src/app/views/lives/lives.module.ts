@@ -1,12 +1,12 @@
+import { HomeComponent } from './../home/home.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LivesRoutingModule } from './lives-routing.module';
-import { LivesComponent } from './lives.component';
 
 
 @NgModule({
-  declarations: [LivesComponent],
+  declarations: [HomeComponent],
   imports: [
     CommonModule,
     LivesRoutingModule
