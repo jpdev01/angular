@@ -18,10 +18,11 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import { LocalDateTimePipe } from 'src/app/shared/pipe/local-date-time.pipe';
 
 
 @NgModule({
-  declarations: [HomeComponent, LiveListComponent, LiveFormDialogComponent],
+  declarations: [HomeComponent, LiveListComponent, LiveFormDialogComponent, LocalDateTimePipe],
   imports: [
     CommonModule,
     LivesRoutingModule,
@@ -38,6 +39,9 @@ import {MatCardModule} from '@angular/material/card';
     ReactiveFormsModule,
     MatDatepickerModule,
     MatProgressBarModule,
+  ],
+  providers: [
+    LocalDateTimePipe
   ]
 })
 export class LivesModule { }
